@@ -1,25 +1,26 @@
-package com.example.demo.dtos;
+package com.example.demo.entities;
 
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
+@Entity
+@Table()
+public class Course {
 
-public class CourseDto {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private Integer id;
+
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false)
     private String teacherName;
+
+    @Column(nullable = false)
     private Integer credits;
 
-    public CourseDto(Integer id, String name, String teacherName, Integer credits) {
-        this.id = id;
-        this.name = name;
-        this.teacherName = teacherName;
-        this.credits = credits;
-    }
-
-    public CourseDto() {
-
-    }
 
     public Integer getId() {
         return id;

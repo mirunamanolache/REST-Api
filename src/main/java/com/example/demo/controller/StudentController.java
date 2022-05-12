@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -28,15 +27,9 @@ public class StudentController {
     }
 
     @PostMapping(value="/newStudent")
-    public ResponseEntity<Object> addStudent(@RequestBody StudentDto studentDto){
-        Object result=studentService.addStudent(studentDto);
+    public ResponseEntity<StudentDto> addStudent(@RequestBody StudentDto studentDto){
+        StudentDto result=studentService.addStudent(studentDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
-
-    @PutMapping(value = "/student/update/{studentId}")
-    public List<StudentDto> updateStudent(@RequestBody StudentDto studentDto, @PathVariable Integer studentId){
-        return new ArrayList<>();
-    }
-
 
 }
